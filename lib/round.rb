@@ -31,7 +31,7 @@ attr_reader :turns, :deck
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{@top_card} for a total score of #{percent_correct}%."
     @deck.categories.each do |category|
-      puts "#{category} - #{percent_correct_by_category(category)}"
+      puts "#{category} - #{percent_correct_by_category(category)}%"
     end
   end
 

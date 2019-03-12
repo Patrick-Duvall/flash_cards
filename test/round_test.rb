@@ -17,7 +17,6 @@ class RoundTest < Minitest::Test
 
   def test_has_a_deck
 
-    assert @round.deck == @deck
     assert_equal @deck,  @round.deck
   end
 
