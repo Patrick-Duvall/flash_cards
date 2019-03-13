@@ -41,9 +41,6 @@ class RoundTest < Minitest::Test
     assert @round.turns.all?{|turn| turn.is_a?(Turn)}
   end
 
-
-
-
   def test_number_correct
     @round.take_turn("Juneau")
     assert_equal 1,  @round.number_correct
@@ -51,6 +48,15 @@ class RoundTest < Minitest::Test
     assert_equal 1,  @round.number_correct
     @round.take_turn("North north west")
     assert_equal 2,  @round.number_correct
+  end
+
+  #
+  def test_turns_in_category
+    @round.take_turn("Juneau")
+    @round.take_turn("Calgary")
+    @round.turns.each{|turn| assert_instance_of(Turn, turn)}
+    @round.turns_in_category(:STEM).each{|turn| assert_equal(:STEM, turn.card.category)}
+
   end
 
   def test_number_correct_by_category

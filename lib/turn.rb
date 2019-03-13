@@ -1,9 +1,8 @@
 class Turn
-  attr_reader :guess, :card, :category
+  attr_reader :guess, :card
   def initialize(guess, card)
     @guess = guess
     @card = card
-    @category = card.category
   end
 
   def correct?
@@ -11,8 +10,7 @@ class Turn
   end
 
   def feedback
-    return "Correct!" if correct?
-    return "Incorrect!" if !correct?
+    correct? ? "Correct!" : "Incorrect!"
   end
 
 
