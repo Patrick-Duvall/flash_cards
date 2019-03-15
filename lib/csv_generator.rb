@@ -1,5 +1,5 @@
 
-class CardGenerator
+class CSVGenerator
   attr_reader :cards
   def initialize(file)
     @file = File.open(file, "r")

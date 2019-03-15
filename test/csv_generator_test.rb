@@ -3,19 +3,19 @@ require "./lib/card"
 require "./lib/turn"
 require "./lib/deck"
 require "./lib/round"
-require "./lib/card_generator"
+require "./lib/csv_generator"
 require "pry"
 
-class CardGeneratorTest < Minitest::Test
+class CSVGeneratorTest < Minitest::Test
 
   def test_generates_cards
-    generator = CardGenerator.new("./cards.txt")
+    generator = CSVGenerator.new("./cards.txt")
     assert_instance_of Array, generator.cards
     generator.cards.each{|card| assert_instance_of((Card), card)}
   end
 
   def test_cards_have_card_qualities
-    generator = CardGenerator.new("./cards.txt")
+    generator = CSVGenerator.new("./cards.txt")
 
     assert_equal "What is 5 + 5?" , generator.cards[0].question
 
