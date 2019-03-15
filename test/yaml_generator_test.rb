@@ -9,14 +9,15 @@ require "pry"
 class YAMLGeneratorTest < Minitest::Test
 
   def test_generates_cards
-    generator = YAMLGenerator.new("./cards.txt")
+    generator = YAMLGenerator.new("./cards.yaml")
+
     assert_instance_of Array, generator.cards
     generator.cards.each{|card| assert_instance_of((Card), card)}
   end
 
   def test_cards_have_card_qualities
-    generator = YAMLGenerator.new("./cards.txt")
-
+    generator = YAMLGenerator.new("./cards.yaml")
+    binding.pry
     assert_equal "What is 5 + 5?" , generator.cards[0].question
 
     assert_equal "10" , generator.cards[0].answer
