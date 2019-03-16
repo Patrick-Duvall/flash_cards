@@ -3,12 +3,15 @@ class APIGenerator
   attr_reader :response
   def initialize(num=5)
     @response = HTTParty.get("https://opentdb.com/api.php?amount=#{num.to_s}").parsed_response["results"]
-    
+
   end
 
     def cards
 
+
       @response.map{|hash| Card.new(hash["question"], hash["correct_answer"] , hash["category"])}
+
+      # ["question"], hash["correct_answer"] , hash["category"]
 
   end
 

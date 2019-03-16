@@ -1,4 +1,4 @@
-require "minitest/autorun"
+
 require "./lib/card"
 require "./lib/turn"
 require "./lib/deck"
@@ -10,8 +10,8 @@ require "./lib/card_loader"
 require "pry"
 require "httparty"
 
-generator = CSVGenerator.new('./cards.txt')
-cards = generator.cards
+loader = CardLoader.new('./files/cards.txt')
+cards = loader.generator.cards
 deck = Deck.new(cards)
 round = Round.new(deck)
 

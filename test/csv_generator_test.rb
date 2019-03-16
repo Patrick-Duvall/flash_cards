@@ -9,13 +9,13 @@ require "pry"
 class CSVGeneratorTest < Minitest::Test
 
   def test_generates_cards
-    generator = CSVGenerator.new("./cards.txt")
+    generator = CSVGenerator.new("./files.cards.txt")
     assert_instance_of Array, generator.cards
     generator.cards.each{|card| assert_instance_of((Card), card)}
   end
 
   def test_cards_have_card_qualities
-    generator = CSVGenerator.new("./cards.txt")
+    generator = CSVGenerator.new("./files.cards.txt")
 
     assert_equal "What is 5 + 5?" , generator.cards[0].question
 

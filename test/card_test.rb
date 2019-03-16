@@ -27,4 +27,9 @@ class CardTest < Minitest::Test
 
     assert_equal :Geography, card.category
   end
+
+  def test_properties
+    card = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+    assert_equal ["What is the capital of Alaska?", "Juneau", "Geography"], card.properties
+  end
 end

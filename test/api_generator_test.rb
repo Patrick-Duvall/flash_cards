@@ -18,11 +18,11 @@ class APIGeneratorTest < Minitest::Test
     binding.pry
     assert_instance_of Array, generator.cards
     generator.cards.each{|card| assert_instance_of((Card), card)}
-    assert_equal 5, generator.cards.length 
+    assert_equal 5, generator.cards.length
   end
 
   # def test_cards_have_card_qualities
-  #   generator = APIGenerator.new("./cards.yaml")
+  #   generator = APIGenerator.new("./files.cards.yaml")
   #   binding.pry
   #   assert_equal "What is 5 + 5?" , generator.cards[0].question
   #
