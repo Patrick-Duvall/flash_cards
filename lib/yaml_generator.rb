@@ -5,6 +5,7 @@ class YAMLGenerator
   attr_reader :file
   def initialize(file)
     @file = YAML.load_file(file)
+    binding.pry
   end
 
   def card_info

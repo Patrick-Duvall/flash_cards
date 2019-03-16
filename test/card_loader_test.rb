@@ -13,7 +13,7 @@ require "httparty"
 class CardLoaderTest < Minitest::Test
 
 # def setup
-#   @yaml = YAMLGenerator.new("./files.cards.yaml")
+#   @yaml = YAMLGenerator.new("./files/cards.yaml")
 #   @api = APIGenerator.new
 #   @csv =CSVGenerator.new("./files.cards.txt")
 # end

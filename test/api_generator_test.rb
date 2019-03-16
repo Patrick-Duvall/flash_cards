@@ -22,7 +22,7 @@ class APIGeneratorTest < Minitest::Test
   end
 
   # def test_cards_have_card_qualities
-  #   generator = APIGenerator.new("./files.cards.yaml")
+  #   generator = APIGenerator.new("./files/cards.yaml")
   #   binding.pry
   #   assert_equal "What is 5 + 5?" , generator.cards[0].question
   #

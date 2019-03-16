@@ -10,6 +10,7 @@ require "./lib/writer"
 require "pry"
 require "httparty"
 require "minitest/autorun"
+require "minitest/reporters"
 require "csv"
 
 
@@ -24,10 +25,19 @@ def setup
 end
 
 def test_writes_csv
-writer = Writer.new("csv", @deck, "cards_1.txt")
-binding.pry
-assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture", writer.write_csv
+  writer = Writer.new("csv", @deck, "cards_1.txt")
+  binding.pry
+  assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture", writer.write_csv
 
+end
+
+def test_writes_yaml
+  writer = Writer.new("yaml", @deck, "cards_1.txt")
+  assert_equal ({"cards"=>
+  [{"question"=>"What is 5 + 5?", "answer"=>"10", "category"=>"STEM"},
+   {"question"=>"What is Rachel's favorite animal?", "answer"=>"red panda", "category"=>"Turing Staff"},
+   {"question"=>"What is Mike's middle name?", "answer"=>"nobody knows", "category"=>"Turing Staff"},
+   {"question"=>"What cardboard cutout lives at Turing?", "answer"=>"Justin bieber", "category"=>"PopCulture"}]}), writer.write_yaml
 
 end
 
