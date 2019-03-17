@@ -57,9 +57,13 @@ class Writer
 
     end
 
+
+
   end
   #
-
+  def delete
+    File.delete("./files/#{@filename}.#{@type}")
+  end
 
 
 
