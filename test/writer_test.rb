@@ -19,7 +19,7 @@ class WriterTest < Minitest::Test
 def setup
 
   @deck = CardLoader.new("./files/cards.txt").generator.cards
-
+  @card_5 = Card.new("1+1","2",:STEM)
 
 
 end
@@ -60,8 +60,9 @@ end
 
   end
 
-  def test_write
-
+  def test_update_csv
+    writer = Writer.new("csv", @deck, "cards_1.txt")
+    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,1,STEM", writer.update_csv(filename, type, card)
 
 
 end

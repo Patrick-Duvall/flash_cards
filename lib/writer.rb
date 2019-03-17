@@ -61,9 +61,11 @@ class Writer
 
   end
   #
-  def delete
-    File.delete("./files/#{@filename}.#{@type}")
-  end
+  # def delete
+  #   File.delete("./files/#{@filename}.#{@type}")
+  # end
+
+  # def update
 
 
 

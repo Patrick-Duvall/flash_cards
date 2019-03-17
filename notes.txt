@@ -1,17 +1,25 @@
-Need to parse API queries out of HTML
+
 
 C
-  Writer
+  Writer > files
 
 
 R
   Generator/reader > Loader
+  //Parse API queries out of HTML
 
 
 U
-  put in writer class
-
+  //put in writer class
+  //Add cards to a text file
 
 D
+done easy
+in writer
 
-  put in writer class
+
+  //UI
+
+
+
+  //Put in bin file
