@@ -20,6 +20,6 @@ card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwi
 cards = [card_1, card_2, card_3]
 deck = Deck.new(cards)
 
-writer = Writer.new("yaml", deck, "cards3")
+writer = Writer.new("txt", deck, "cards")
 
-writer.write
+writer.update_csv(card_3)

@@ -3,15 +3,20 @@ class Writer
   attr_reader :type, :deck, :filename
   def initialize(type, deck, filename)
     @deck = deck
+    @stupid_deck_saver = deck
     @type = type
-    @card_properties = @deck.cards.map{|card|card.properties}
+
     @filename = filename
 
   end
 
+  def card_properties
+    @deck.cards.map{|card|card.properties}
+  end
+
   def write_csv
 
-    @card_properties.reduce(''){|new_string, el| new_string + el.join(',') + "\n"}.chomp
+    card_properties.reduce(''){|new_string, el| new_string + el.join(',') + "\n"}.chomp
 
   end
 
@@ -60,12 +65,22 @@ class Writer
 
 
   end
-  #
-  # def delete
-  #   File.delete("./files/#{@filename}.#{@type}")
-  # end
 
-  # def update
+  def delete
+    File.delete("./files/#{@filename}.#{@type}")
+  end
+
+  #Breaks principals OOP, BAD, but quicker than refactor
+
+  def update_csv(card)
+    @deck = Deck.new([card])
+    text_to_add = write_csv
+    file = File.open("./files/#{@filename}.txt", 'a+')
+    file.puts(write_csv)
+    file.close
+    @deck = @stupid_deck_saver
+
+  end
 
 
 
