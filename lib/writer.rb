@@ -26,9 +26,9 @@ class Writer
     ret_hash
   end
 
-  # def write_api
-  #
-  # end
+  def write_api
+
+  end
   #
 
 

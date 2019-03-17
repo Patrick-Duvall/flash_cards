@@ -14,7 +14,7 @@ class APIGeneratorTest < Minitest::Test
   def  test_generates_cards
     url = "https://opentdb.com/api.php?amount=5&type=multiple
     def test_generates_cards"
-    generator = APIGenerator.new(5)
+    generator = APIGenerator.new(1)
     binding.pry
     assert_instance_of Array, generator.cards
     generator.cards.each{|card| assert_instance_of((Card), card)}

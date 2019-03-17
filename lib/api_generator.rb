@@ -3,7 +3,7 @@ class APIGenerator
   attr_reader :response
   def initialize(num=5)
     @response = HTTParty.get("https://opentdb.com/api.php?amount=#{num.to_s}").parsed_response["results"]
-
+    binding.pry
   end
 
     def cards
