@@ -26,7 +26,8 @@ def setup
 
 end
 def test_writes_csv_function
-  writer = Writer.new("csv", @deck, "cards.txt")
+
+  writer = Writer.new("csv", @deck, "cards_1.txt")
   binding.pry
   assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture", writer.write_csv
 
@@ -64,11 +65,12 @@ end
   end
 
   def test_update_csv
-    skip
-    writer = Writer.new("csv", @deck, "cards")
+
+    writer = Writer.new("csv", @deck, "cards_1")
     card = Card.new("2+2", "4", :STEM)
     writer.update_csv(card)
-    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,4,STEM", IO.read("./files/cards.txt")
+    binding.pry
+    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,4,STEM\n", IO.read("./files/cards_1.txt")
   end
 
 
