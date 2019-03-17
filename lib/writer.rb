@@ -1,10 +1,11 @@
 
 class Writer
-  attr_reader :type, :deck
+  attr_reader :type, :deck, :filename
   def initialize(type, deck, filename)
     @deck = deck
     @type = type
     @card_properties = @deck.map{|card|card.properties}
+    @filename = filename
 
   end
 
@@ -36,6 +37,20 @@ class Writer
       ret_hash["cards"] << yaml_card
     end
     ret_hash
+  end
+
+  def write
+
+    case @type
+    when "csv"
+      file = File.open("./files/#{@filename}.txt", 'w')
+      file.puts(write_csv)
+      file.close
+    when "json"
+    when "yaml"
+
+    end
+
   end
   #
 

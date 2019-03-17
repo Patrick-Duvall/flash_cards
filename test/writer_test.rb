@@ -24,14 +24,14 @@ def setup
 
 end
 
-def test_writes_csv
+def test_writes_csv_function
   writer = Writer.new("csv", @deck, "cards_1.txt")
   binding.pry
   assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture", writer.write_csv
 
 end
 
-def test_writes_yaml
+def test_writes_yaml_function
   writer = Writer.new("yaml", @deck, "cards_1.yaml")
   assert_equal ({"cards"=>
   [{"question"=>"What is 5 + 5?", "answer"=>"10", "category"=>"STEM"},
@@ -41,7 +41,7 @@ def test_writes_yaml
 
 end
 
-  def test_writes_json
+  def test_writes_json_function
     writer = Writer.new("json", @deck, "cards_1.js")
 
     assert_equal ({"cards" =>[{"category"=>"STEM",
@@ -59,6 +59,8 @@ end
     }]}) , writer.write_json
 
   end
+
+  def test_write
 
 
 
