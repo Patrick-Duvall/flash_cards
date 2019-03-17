@@ -44,7 +44,7 @@ end
   def test_writes_json
     writer = Writer.new("json", @deck, "cards_1.js")
 
-    assert_equal({"cards" =>[{"category"=>"STEM",
+    assert_equal ({"cards" =>[{"category"=>"STEM",
     "question"=>"What is 5 + 5?",
     "answer"=>"10"
     },{"category"=>"Turing Staff",
@@ -56,7 +56,7 @@ end
     },{"category"=>"PopCulture",
     "question"=>"What cardboard cutout lives at Turing?",
     "answer"=>"Justin bieber"
-    }]}) , writer.writes_json
+    }]}) , writer.write_json
 
   end
 
