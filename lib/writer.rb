@@ -4,7 +4,7 @@ class Writer
   def initialize(type, deck, filename)
     @deck = deck
     @type = type
-    @card_properties = @deck.map{|card|card.properties}
+    @card_properties = @deck.cards.map{|card|card.properties}
     @filename = filename
 
   end
@@ -47,7 +47,13 @@ class Writer
       file.puts(write_csv)
       file.close
     when "json"
+      file = File.open("./files/#{@filename}.js", 'w')
+      file.puts(write_json)
+      file.close
     when "yaml"
+      file = File.open("./files/#{@filename}.yaml", 'w')
+      file.puts(write_yaml)
+      file.close
 
     end
 
