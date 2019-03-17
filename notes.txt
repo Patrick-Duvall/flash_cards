@@ -1,0 +1,17 @@
+Need to parse API queries out of HTML
+
+C
+  Writer
+
+
+R
+  Generator/reader > Loader
+
+
+U
+  put in writer class
+
+
+D
+
+  put in writer class

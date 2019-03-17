@@ -47,12 +47,12 @@ class Writer
       file.puts(write_csv)
       file.close
     when "json"
-      file = File.open("./files/#{@filename}.js", 'w')
-      file.puts(write_json)
+      file = File.open("./files/#{@filename}.json", 'w')
+      file.puts(JSON.generate(write_json))
       file.close
     when "yaml"
       file = File.open("./files/#{@filename}.yaml", 'w')
-      file.puts(write_yaml)
+      file.puts(write_yaml.to_yaml)
       file.close
 
     end
