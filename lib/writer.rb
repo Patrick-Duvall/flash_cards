@@ -10,8 +10,10 @@ class Writer
 
   end
 
+
   def card_properties
     @deck.cards.map{|card|card.properties}
+
   end
 
   def write_csv
@@ -22,7 +24,7 @@ class Writer
 
   def write_yaml
     ret_hash = {"cards" => []}
-    @card_properties.each do|array|
+    card_properties.each do|array|
       yaml_card = {}
       yaml_card["question"] = array[0]
       yaml_card["answer"] = array[1]
@@ -34,7 +36,7 @@ class Writer
 
   def write_json
     ret_hash = {"cards" => []}
-    @card_properties.each do|array|
+    card_properties.each do|array|
       yaml_card = {}
       yaml_card["question"] = array[0]
       yaml_card["answer"] = array[1]

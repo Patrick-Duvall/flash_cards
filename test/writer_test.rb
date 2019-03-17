@@ -18,20 +18,22 @@ class WriterTest < Minitest::Test
 
 def setup
 
-  @deck = CardLoader.new("./files/cards.txt").generator.cards
+  @cards = CardLoader.new("./files/cards.txt").generator.cards
+  @deck = Deck.new(@cards)
   @card_5 = Card.new("1+1","2",:STEM)
 
 
-end
 
+end
 def test_writes_csv_function
-  writer = Writer.new("csv", @deck, "cards_1.txt")
+  writer = Writer.new("csv", @deck, "cards.txt")
   binding.pry
   assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture", writer.write_csv
 
 end
 
 def test_writes_yaml_function
+
   writer = Writer.new("yaml", @deck, "cards_1.yaml")
   assert_equal ({"cards"=>
   [{"question"=>"What is 5 + 5?", "answer"=>"10", "category"=>"STEM"},
@@ -42,6 +44,7 @@ def test_writes_yaml_function
 end
 
   def test_writes_json_function
+
     writer = Writer.new("json", @deck, "cards_1.js")
 
     assert_equal ({"cards" =>[{"category"=>"STEM",
@@ -61,8 +64,14 @@ end
   end
 
   def test_update_csv
-    writer = Writer.new("csv", @deck, "cards_1.txt")
-    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,1,STEM", writer.update_csv(filename, type, card)
+    skip
+    writer = Writer.new("csv", @deck, "cards")
+    card = Card.new("2+2", "4", :STEM)
+    writer.update_csv(card)
+    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,4,STEM", IO.read("./files/cards.txt")
+  end
+
+
 
 
 end
