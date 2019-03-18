@@ -72,7 +72,7 @@ class Writer
     File.delete("./files/#{@filename}.#{@type}")
   end
 
-  #Breaks principals OOP, BAD, but quicker than refactor
+  #Breaks principals OOP, BAD, but quicker than refactor, RAS
 
   def update_csv(card)
     @deck = Deck.new([card])
@@ -83,6 +83,12 @@ class Writer
     @deck = @stupid_deck_saver
 
   end
+
+  def update_yaml(card)
+
+  end
+
+
 
 
 

@@ -64,16 +64,22 @@ end
 
   end
 
+  #Check ./files/cards_1.txt
   def test_update_csv
 
     writer = Writer.new("csv", @deck, "cards_1")
     card = Card.new("2+2", "4", :STEM)
     writer.update_csv(card)
-    binding.pry
+
     assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,4,STEM\n", IO.read("./files/cards_1.txt")
   end
 
+  def test_update_yaml
 
+    writer = Writer.new("yaml", @deck, "cards_1")
+    writer.update_yaml(card)
+    binding.pry
+    assert_equal "What is 5 + 5?,10,STEM\nWhat is Rachel's favorite animal?,red panda,Turing Staff\nWhat is Mike's middle name?,nobody knows,Turing Staff\nWhat cardboard cutout lives at Turing?,Justin bieber,PopCulture\n2+2,4,STEM\n", IO.read("./files/cards_1.yaml")
 
 
 end
